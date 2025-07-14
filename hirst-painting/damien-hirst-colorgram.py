@@ -24,8 +24,16 @@ color_list = [
 ]
 
 damien_hirst = Turtle()
-damien_hirst.speed("fastest")
-
+damien_hirst.speed("fastest")  
+damien_hirst.penup()
+rows = 10
+cols = 10  
+spacing = 50 
+grid_width = spacing * cols
+grid_height = spacing * rows
+start_x = -grid_width / 2
+start_y = grid_height / 2
+damien_hirst.goto(start_x, start_y)
 def random_color(): 
     return random.choice(color_list)
 
@@ -41,7 +49,7 @@ def create_table(rows,cols):
         damien_hirst.forward(spacing)
         damien_hirst.left(90)
         
-create_table(10,10)
+create_table(rows,cols)
 
 screen = Screen()
 screen.exitonclick()
