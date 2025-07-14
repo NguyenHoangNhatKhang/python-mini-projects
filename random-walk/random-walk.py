@@ -16,7 +16,7 @@ LIMIT = 390  # trừ đi nửa bước vẽ và độ dày để tránh lọt m�
 directions = [0,90,180,270]
 tim.pensize(15)
 tim.speed(0)
-for _ in range(100000   000):
+for _ in range(100000):
     tim.color(random_color())
     tim.forward(30)
     tim.setheading(random.choice(directions))
