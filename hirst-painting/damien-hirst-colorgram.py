@@ -22,14 +22,18 @@ color_list = [
     (177, 216, 188), (35, 110, 58), (169, 184, 206), (60, 36, 21),
     (14, 71, 96)
 ]
+
 damien_hirst = Turtle()
 damien_hirst.speed("fastest")
+
+def random_color(): 
+    return random.choice(color_list)
 
 def create_table(rows,cols):
     spacing = 50 
     for row in range(0,rows):
         for col in range(0,cols):
-            damien_hirst.dot(20,random.choice(color_list))
+            damien_hirst.dot(20,random_color())
             damien_hirst.penup()
             damien_hirst.forward(spacing)
         damien_hirst.backward(spacing * cols)
