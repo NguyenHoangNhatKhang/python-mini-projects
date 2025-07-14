@@ -26,6 +26,7 @@ color_list = [
 damien_hirst = Turtle()
 damien_hirst.speed("fastest")  
 damien_hirst.penup()
+damien_hirst.hideturtle()
 rows = 10
 cols = 10  
 spacing = 50 
