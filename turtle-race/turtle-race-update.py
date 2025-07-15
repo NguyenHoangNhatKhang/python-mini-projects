@@ -23,13 +23,13 @@ if your_bet in colors:
             for i in turtles: 
                 turtles[i].forward(random.randint(0,10))
                 if turtles[i].xcor() >= 230:
+                    is_race_on = False
                     winner = turtles[i].pencolor()
                     if winner == your_bet:
                         print(f"Winner is: {winner}!!You are the winner")
-                        is_race_on = False
                     else: 
                         print(f"Winner is {winner}!!You are not the winner!")
-                        is_race_on = False
+                        
     elif noti == "no":
         screen.exitonclick()
     else: 
