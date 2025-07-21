@@ -1,45 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // required
+document.getElementById("sent").addEventListener("click", function () {
   const input = document.getElementById("chatbot-input");
-  const sendBtn = document.getElementById("sent");
-  const messageBox = document.getElementById("chatbot-messages");
+  const message = input.value;
+  if (!message.trim()) return;
 
-  //send
-  sendBtn.addEventListener("click", function () {
-    const userMessage = input.value.trim();
+  // messages display
+  const userMsg = document.createElement("div");
+  userMsg.className = "message user";
+  userMsg.textContent = message;
+  document.getElementById("chatbot-messages").appendChild(userMsg);
 
-    if (userMessage === "") return; // Nếu không nhập gì thì bỏ qua
+  input.value = ""; // Clear input
 
-    // 1. Hiển thị tin nhắn người dùng lên khung chat
-    const userDiv = document.createElement("div");
-    userDiv.className = "message user";
-    userDiv.textContent = userMessage;
-    messageBox.appendChild(userDiv);
-
-    // 2. Gửi tin nhắn đến Flask (backend)
-    fetch("/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message: userMessage }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // 3. Nhận phản hồi từ Flask → hiển thị tin nhắn bot
-        const botDiv = document.createElement("div");
-        botDiv.className = "message bot";
-        botDiv.textContent = data.reply;
-        messageBox.appendChild(botDiv);
-
-        // 4. Xoá nội dung input
-        input.value = "";
-
-        // 5. Scroll xuống cuối khung chat
-        messageBox.scrollTop = messageBox.scrollHeight;
-      })
-      .catch((err) => {
-        console.error("Lỗi khi gửi message:", err);
-      });
-  });
+  // sending messages to flask
+  fetch("/chat-answer", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ message: message }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // bot response
+      const botMsg = document.createElement("div");
+      botMsg.className = "message bot";
+      botMsg.textContent = data.reply;
+      document.getElementById("chatbot-messages").appendChild(botMsg);
+    });
 });

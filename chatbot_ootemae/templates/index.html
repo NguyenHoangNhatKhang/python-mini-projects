@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>ChatBot</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='/style.css')}}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}" />
   </head>
   <body>
     <div id="chatbot-container" class="hidden">
@@ -17,8 +14,9 @@
       </div>
       <div id="chatbot-body">
         <div id="chatbot-messages"></div>
-        <div class="message bot">こんにちは</div>
-        <div class="message user">こんにちは</div>
+        <div class="message bot">
+          おはようございます！大手前大学のチャットボットです！
+        </div>
       </div>
       <div id="chatbot-input-container">
         <input type="text" id="chatbot-input" placeholder="Type a message..." />
