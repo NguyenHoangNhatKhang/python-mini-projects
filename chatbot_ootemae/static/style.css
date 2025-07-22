@@ -30,6 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-height: 250px;
 }
 .message {
   padding: 8px 12px;
