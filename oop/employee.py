@@ -11,7 +11,17 @@ class Employee:
     def apply_co_salary(self):
         self.pay = int(self.pay * self.co_salary)
         return self.pay 
+    def __repr__(self):
+        return f"Employee {self.first}, {self.last}, {self.pay}"
     
+    def __str__(self):
+        return f"{self.Get_email()}- {self.apply_co_salary()}"
+    
+    def __add__(self,other):
+        return self.pay + other.pay
+    
+    def __len__(self):
+        return len(self.Get_email())
 class Developer(Employee):
     co_salary = 1.02
     def __init__(self,first,last,pay,pro_lang):
@@ -56,6 +66,7 @@ dev1 = Developer("khang","nguyenhoangnhat",2000,"Python")
 dev2 = Developer("Khoa","khoi",5555,"c++")
 man = Manager("khoa","Phamthien",500,[dev1,dev2])
 sec1 = Secretary("ngoc","hiue",60000,"eat with manager")
-
-print(man.add_employees(sec1))
-man.print_employees()
+print(str(dev1))
+print(repr(dev1))
+print(dev1 + dev2)
+print(dev1.__len__())
