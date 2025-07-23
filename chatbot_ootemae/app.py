@@ -1,11 +1,11 @@
-from flask import Flask,render_template,url_for,redirect,request
+from flask import Flask,render_template,url_for,redirect,request,jsonify
 import openai 
 import json 
 import os 
 from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
-openai.api_key = os.getenv("MY_API_KEY")
+openai.api_key = os.getenv("API_KEY")
 
 with open("chatbot_ootemae/ex.json",'r') as f:
     school_data = json.load(f)
