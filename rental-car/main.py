@@ -1,4 +1,4 @@
-from veh_class import Vehicle,Car,MotorBike,Bike 
+from veh_class import Vehicle,Car,Motorbike,Bike 
 from veh_data import vehicles
 need_vehicle = True
 while need_vehicle:

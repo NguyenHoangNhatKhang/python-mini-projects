@@ -29,7 +29,7 @@ class Car(Vehicle):
  
     def get_price(self):
         return self.base_price + self.car_tax
-class MotorBike(Vehicle):
+class Motorbike(Vehicle):
     motorbike_tax = 60000
     def __init__(self, brand, model,type="Motorbike"):
         super().__init__(brand, model,type)
