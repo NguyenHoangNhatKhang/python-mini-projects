@@ -18,8 +18,6 @@ from random import choice
 #     Bike("GIANT", "Escape 3"),
 #     Bike("Trek", "FX 1"),
 #     Bike("Thống Nhất", "Fixie")
-# ]
-
 
 
 car_brands = ["Audi", "Toyota", "BMW", "Ferrari", "Mercedes", "Honda", "Ford", "Chevrolet", "Hyundai", "Kia"]
@@ -35,21 +33,30 @@ bike_models = ["MTB-01", "CityBike", "Escape 3", "FX 1", "Fixie", "Crossway", "S
 vehicles = []
 
 
-def generate_veh(veh_type=input("What types of vehicle?:").strip().title(),quantity=int(input(f"How many vehicles would you like to see:"))):
-    for i in range(quantity):
-        if veh_type == "Car":
-            car_brand = choice(car_brands)
-            car_model = choice(car_models)
-            vehicles.append(Car({car_brand},{car_model}))
-        elif veh_type == "Motorbike":
-            motor_brand = choice(motor_brands)
-            motor_model = choice(motor_models)
-            vehicles.append(Motorbike({motor_brand},{motor_model}))
-        elif veh_type == "Bike":
-            bike_brand = choice(bike_brands)
-            bike_model = choice(bike_models)
-            vehicles.append(Bike({bike_brand},{bike_model}))
-        else: 
-            print(f"Your {veh_type} of Vehicles are invalid!")
-            break
+def generate_veh():
+    veh_type=input("What types of vehicle?:").strip().title()
+    if not veh_type in ["Car","Motorbike","Bike"]:
+        print(f"Your {veh_type} type of vehicles is INVALID.")
+    else:
+        quantity=int(input(f"How many {veh_type}s would you like to see:"))
+
+        for i in range(quantity):
+            if veh_type == "Car":
+                car_brand = choice(car_brands)
+                car_model = choice(car_models)
+                vehicles.append(Car({car_brand},{car_model}))
+            elif veh_type == "Motorbike":
+                motor_brand = choice(motor_brands)
+                motor_model = choice(motor_models)
+                vehicles.append(Motorbike({motor_brand},{motor_model}))
+            elif veh_type == "Bike":
+                bike_brand = choice(bike_brands)
+                bike_model = choice(bike_models)
+                vehicles.append(Bike({bike_brand},{bike_model}))
+            else: 
+                print(f"Your {veh_type} of Vehicles are invalid!")
+                break
+
+      
+
 generate_veh()

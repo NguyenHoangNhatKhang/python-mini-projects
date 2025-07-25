@@ -4,7 +4,7 @@ import random
 turtles = {}
 screen = Screen()
 screen.setup(500,400)
-colors = ["red","blue","green","yellow","black"]
+colors = ["red","blue","green","yellow","black","purple"]
      
 def create_turtles(turtle_numbers):
     spacing = 30

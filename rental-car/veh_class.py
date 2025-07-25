@@ -4,6 +4,7 @@ class Vehicle:
         self.model = model 
         self.base_price = 100000
         self.type = type
+        
 
     def display(self):
         print(f"""
