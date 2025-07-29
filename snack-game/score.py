@@ -24,3 +24,5 @@ class Score(Turtle):
         self.clear()
         self.goto(0,0)
         self.write(f"GAME OVER",align=ALLIGNMENT,font=(FONT,SIZE,STYLE))
+    
+    

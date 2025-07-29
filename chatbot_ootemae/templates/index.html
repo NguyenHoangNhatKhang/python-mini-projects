@@ -3,33 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>大手前大学</title>
 
-    <title>ChatBot</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='style.css') }}"
+    />
   </head>
-  <body>
-    <div></div>
-    <div>
-      <img
-        src="https://www.digital-knowledge.co.jp/wp-content/uploads/2016/03/otemae-sama-logo.png"
-        alt="logo"
-      />
-    </div>
-    <div id="chatbot-container" class="hidden">
-      <div id="chatbot-header">
-        <span style="color: white"><strong>CHATBOT</strong></span>
-      </div>
-      <div id="chatbot-body">
-        <div id="chatbot-messages"></div>
-        <div class="message bot">
-          おはようございます！大手前大学のチャットボットです！
+
+  <body style="background-color: #2e2e8a; min-height: 100vh">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img
+            src="{{ url_for('static', filename='logo.jpg') }}"
+            alt="logo"
+            height="40"
+            class="me-2"
+          />
+          大手前大学
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://www.otemae.ac.jp"
+                target="_blank"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://instagram.com/nhkhangh"
+                target="_blank"
+                ><i class="bi bi-instagram"></i> Instagram</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
-      <div id="chatbot-input-container">
-        <input type="text" id="chatbot-input" placeholder="Type a message..." />
-        <button id="sent">Send</button>
+    </nav>
+
+    <!-- Chatbot Box -->
+    <div
+      id="chatbot-container"
+      class="position-fixed bottom-0 end-0 m-4 rounded-4 shadow-lg"
+      style="width: 300px; background-color: #fff; z-index: 1000"
+    >
+      <div
+        id="chatbot-header"
+        class="bg-primary text-white p-2 text-center rounded-top-4"
+      >
+        <strong><i class="bi bi-robot me-1"></i>オーテマエサン</strong>
+      </div>
+      <div
+        id="chatbot-body"
+        class="p-3"
+        style="height: 200px; overflow-y: auto"
+      >
+        <div id="chatbot-messages"></div>
+      </div>
+      <div id="chatbot-input-container" class="p-2 border-top d-flex">
+        <input
+          type="text"
+          id="chatbot-input"
+          class="form-control me-2"
+          placeholder="Type a message..."
+        />
+        <button id="sent" class="btn btn-primary">Send</button>
       </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Your Custom JS -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>

@@ -9,7 +9,9 @@ openai.api_key = os.getenv("API_KEY")
 
 with open("chatbot_ootemae/ex.json",'r') as f:
     school_data = json.load(f)
-
+# @app.route("/login/otemae.ac.jp",methods=["GET"])
+# def mainpage():
+#     if request.method == "GET"
 
 @app.route('/login',methods=["POST","GET"])
 def login():
