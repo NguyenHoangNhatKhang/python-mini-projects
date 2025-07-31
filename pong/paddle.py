@@ -1,21 +1,22 @@
-FIXED_POSITION = [(100,-200),(-100,200)]
-
+POSITION = [(350,0),(-350,0)]
 from turtle import Turtle
 class Paddle(Turtle):
-    def __init__(self):
+    def __init__(self,pos):
         super().__init__()
-        for position in FIXED_POSITION:
-            self.create(position)
-
-
-    def create(self,position): 
         self.shape("square")
         self.color("white")
-        self.shapesize(1,5)
+        self.shapesize(5,1)
         self.penup()
-        self.goto(position)
+        self.goto(pos)
 
-    def move_up(self):
-        self.forward(20)
-    def move_down(self):
-        self.backward(20)
+    def up(self):
+        new_y = self.ycor()+40
+        self.goto(self.xcor(),new_y)
+
+
+    
+    def down(self):
+        new_y = self.ycor()-40
+        self.goto(self.xcor(),new_y)
+
+    
