@@ -2,7 +2,7 @@ import turtle
 import pandas
 screen = turtle.Screen()
 screen.title("US.States Game")
-img = "blank_states_img.gif"
+img = "./50_states/blank_states_img.gif"
 screen.addshape(img)
 t = turtle.Turtle(img)
 
@@ -18,7 +18,7 @@ def game_over():
     g.write(f"GAME OVER! You have {correct_ans} correct answers",align="center",font=("Arial",20,"normal"))
     g.penup()
     g.goto(0,0)
-data = pandas.read_csv("50_states.csv")
+data = pandas.read_csv("./50_states/50_states.csv")
 all_states = data.state.to_list()
 guessed_states = []
 correct_ans = 0
@@ -27,11 +27,11 @@ while len(guessed_states) <50:
 #    print(data[data["state"] == country])
     answer_state = screen.textinput(title=f"{correct_ans}/50 states",prompt="Whats another states name?").title()
     if answer_state == "Exit":
-        missing_states = []
+        missing_states = [state for state in all_states if state not in guessed_states]
         game_over()
-        for state in all_states:
-            if state not in guessed_states:
-                missing_states.append(state)
+        # for state in all_states:
+        #     if state not in guessed_states:
+        #         missing_states.append(state)
         new_data = pandas.DataFrame(missing_states)
         new_data.to_csv("States_to_learn.csv")
         break 
